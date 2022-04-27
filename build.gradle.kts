@@ -13,6 +13,8 @@ dependencies {
     implementation(kotlin("stdlib"))
     implementation(kotlin("reflect"))
     implementation("javax.servlet:jstl:1.2")
+    implementation("org.apache.tiles:tiles-servlet:2.2.1")
+    implementation("org.slf4j:slf4j-simple:1.5.8")
     implementation("org.springframework:spring-aop:3.0.7.RELEASE")
     implementation("org.springframework:spring-aspects:3.0.7.RELEASE")
     implementation("org.springframework:spring-context:3.0.7.RELEASE")
