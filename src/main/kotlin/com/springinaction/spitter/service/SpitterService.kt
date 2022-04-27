@@ -1,15 +1,8 @@
 package com.springinaction.spitter.service
 
-import org.springframework.stereotype.Service
+import com.springinaction.spitter.model.Spittle
 
-@Service
-class SpitterService {
+interface SpitterService {
 
-    fun getRecentSpittles(spittlesPerPage: Int): List<Any> {
-        val result = mutableListOf<Int>()
-        for (i in 0..spittlesPerPage) {
-            result.add(i)
-        }
-        return result
-    }
+    fun getRecentSpittles(spittlesPerPage: Int): List<Spittle>
 }
