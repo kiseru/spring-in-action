@@ -1,8 +1,8 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("jvm") version "1.6.10"
-    kotlin("plugin.spring") version "1.6.10"
+    kotlin("jvm") version "1.6.21"
+    kotlin("plugin.spring") version "1.6.21"
     application
 }
 
@@ -13,9 +13,9 @@ repositories {
 dependencies {
     implementation(kotlin("stdlib"))
     implementation(kotlin("reflect"))
-    implementation("org.springframework:spring-context:5.3.14")
-    implementation("org.springframework:spring-aop:5.3.14")
-    implementation("org.springframework:spring-aspects:5.3.14")
+    implementation("org.springframework:spring-context:3.0.7")
+    implementation("org.springframework:spring-aop:3.0.7")
+    implementation("org.springframework:spring-aspects:3.0.7")
 
     testImplementation("org.mockito:mockito-core:4.2.0")
     testImplementation("org.junit.jupiter:junit-jupiter:5.8.2")
@@ -27,7 +27,8 @@ application {
 
 tasks.withType<KotlinCompile> {
     kotlinOptions {
-        jvmTarget = "1.8"
+        freeCompilerArgs = listOf("-Xjsr305=strict")
+        jvmTarget = "17"
     }
 }
 
