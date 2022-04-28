@@ -10,4 +10,6 @@ interface SpitterService {
     fun getSpitter(username: String) : Spitter
 
     fun getSpittlesForSpitter(username: String): List<Spittle>
+
+    fun saveSpitter(spitter: Spitter)
 }

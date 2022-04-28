@@ -28,4 +28,8 @@ class SpitterServiceImpl : SpitterService {
     override fun getSpittlesForSpitter(username: String): List<Spittle> {
         return spittleDao.getSpittlesForSpitter(username)
     }
+
+    override fun saveSpitter(spitter: Spitter) {
+        spitterDao.addSpitter(spitter)
+    }
 }

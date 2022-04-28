@@ -17,4 +17,8 @@ open class Spitter {
     var password: String? = null
     
     var fullName: String? = null
+
+    var email: String? = null
+
+    var updateByEmail: Boolean = false
 }
