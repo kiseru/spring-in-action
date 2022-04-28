@@ -1,42 +1,31 @@
 package com.springinaction.spitter.service.impl
 
-import com.springinaction.spitter.model.Spitter
-import com.springinaction.spitter.model.Spittle
+import com.springinaction.spitter.domain.Spitter
+import com.springinaction.spitter.domain.Spittle
+import com.springinaction.spitter.persistence.SpitterDao
+import com.springinaction.spitter.persistence.SpittleDao
 import com.springinaction.spitter.service.SpitterService
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
-import java.util.*
 
 @Service
 class SpitterServiceImpl : SpitterService {
 
-    private val spittles: List<Spittle> = mutableListOf(
-        Spittle(
-            "All happiness depends on a leisurely breakfast.",
-            Spitter(1, "john-gunther", "password", "John Gunther"),
-            Date(),
-        ),
-        Spittle(
-            "Even in Siberia there is happiness.",
-            Spitter(2, "anton-chekhov", "password", "Anton Chekhov"),
-            Date(),
-        ),
-        Spittle(
-            "The only true wisdom is in knowing you know nothing.",
-            Spitter(3, "socrates", "password", "Socrates"),
-            Date(),
-        ),
-    )
+    @Autowired
+    lateinit var spitterDao: SpitterDao
+
+    @Autowired
+    lateinit var spittleDao: SpittleDao
 
     override fun getRecentSpittles(spittlesPerPage: Int): List<Spittle> {
-        return spittles
+        return spittleDao.getRecentSpittles(spittlesPerPage)
     }
 
     override fun getSpitter(username: String): Spitter {
-        return spittles.map { it.spitter }
-            .find { username == it.username } ?: throw IllegalStateException()
+        return spitterDao.getSpitterByUsername(username)
     }
 
     override fun getSpittlesForSpitter(username: String): List<Spittle> {
-        return spittles.filter { username == it.spitter.username }
+        return spittleDao.getSpittlesForSpitter(username)
     }
 }

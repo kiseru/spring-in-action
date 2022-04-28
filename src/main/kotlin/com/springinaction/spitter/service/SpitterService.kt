@@ -1,7 +1,7 @@
 package com.springinaction.spitter.service
 
-import com.springinaction.spitter.model.Spitter
-import com.springinaction.spitter.model.Spittle
+import com.springinaction.spitter.domain.Spitter
+import com.springinaction.spitter.domain.Spittle
 
 interface SpitterService {
 
